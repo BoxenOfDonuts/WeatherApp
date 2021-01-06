@@ -1,0 +1,45 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "To-do list for the odin project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "deploy": "webpack --progress --mode=production && git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoxenOfDonuts/to-do.git"
+  },
+  "author": "BoxenOfDonuts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoxenOfDonuts/to-do/issues"
+  },
+  "homepage": "https://github.com/BoxenOfDonuts/to-do#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "date-fns": "^2.16.1"
+  }
+}
