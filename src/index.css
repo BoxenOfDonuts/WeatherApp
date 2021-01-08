@@ -1,0 +1,12 @@
+.current-temp::after {
+    content: '\00B0 F';
+    font-size: 2rem;
+    position: absolute;
+    top: 10%;
+}
+
+.current-temp {
+    position: relative;
+    font-size: 5rem;
+    
+}
