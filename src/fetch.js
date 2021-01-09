@@ -1,4 +1,6 @@
-const APIKEY = '';
+import { config } from './config';
+
+const APIKEY = config.apiKey;
 
 const requests = async (url, parameters, method = 'GET') => {
     let params;
