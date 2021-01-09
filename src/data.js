@@ -12,7 +12,7 @@ class Weather {
 
 const processData = async (data) => {
     const { name: city, main, weather } = data;
-    const iconURL = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+    const iconURL = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
     const today = new Weather(
         city,

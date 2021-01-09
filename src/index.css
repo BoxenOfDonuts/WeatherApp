@@ -1,12 +1,104 @@
-.current-temp::after {
-    content: '\00B0 F';
-    font-size: 2rem;
-    position: absolute;
-    top: 10%;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans SC', sans-serif;
 }
 
 .current-temp {
-    position: relative;
-    font-size: 5rem;
+    font-size: 4.5rem;
     
 }
+
+.temp {
+    position: relative;
+}
+
+.degrees {
+    font-size: 1rem;
+    position: absolute;
+    top: 15%;
+}
+
+.wrapper {
+    text-align: center;
+    margin: 40px 10px;
+    width: 350px;
+}
+.weather-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.weather-container > div {
+    width: 150px;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left {
+    border-left: 1px solid black;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.small-temp {
+    margin-left: 5px;
+}
+
+.image {
+    background-size:contain ;
+}
+
+/* navbar stuff */
+.nav {
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+    margin: auto 0;
+  }
+  
+  li div, li input[type="text"] {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 4px 16px;
+    margin-left: 15px;
+    text-decoration: none;
+  }
+
+  .right-float {
+      float: right;
+  }
+
+  input[type="text"]::placeholder {
+      text-align: start;
+  }
+
+  input[type="text"] {
+      margin-left:15px !important;
+      border-radius: 5px;
+      width: 24rem;
+      
+  }
+
+  /* toggle switch */

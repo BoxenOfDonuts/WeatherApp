@@ -1,8 +1,7 @@
-const APIKEY = '';
+const APIKEY = '0ddb9a26781af92c96e23967103fda40';
 
 const requests = async (url, parameters, method = 'GET') => {
     let params;
-    let finalURL;
     const data = {
         method,
         mode: 'cors',
@@ -18,7 +17,7 @@ const requests = async (url, parameters, method = 'GET') => {
         params = new URLSearchParams({ appid: APIKEY });
     }
 
-    finalURL = `${url}?${params}`;
+    const finalURL = `${url}?${params}`;
 
     const response = await fetch(finalURL, data);
 
