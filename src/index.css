@@ -61,9 +61,6 @@
 }
 
 /* navbar stuff */
-.nav {
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -86,6 +83,21 @@ ul {
     text-decoration: none;
   }
 
+  form {
+      display: flex;
+      position: relative;
+  }
+
+  .input button, .input input[type="text"] {
+      padding: 4px 16px;
+      border: 0;
+  }
+
+  .input button {
+      position: relative;
+      border-radius:  0 4px 4px 0;
+  }
+
   .right-float {
       float: right;
   }
@@ -96,7 +108,7 @@ ul {
 
   input[type="text"] {
       margin-left:15px !important;
-      border-radius: 5px;
+      border-radius: 4px 0 0 4px;
       width: 24rem;
       
   }

@@ -1,6 +1,7 @@
 import { get } from './fetch.js';
 import { processData } from './data.js';
 import './index.css';
+import { doc } from 'prettier';
 
 const fetchWeather = async () => {
     try {
@@ -18,6 +19,13 @@ const fetchWeather = async () => {
         console.log(error);
     }
 };
+
+const inputController = (() => {
+    const getLocationInput = () => {
+        let input = document.querySelector('input[type="text"]');
+        input.addEventListener('pro')
+    }
+})();
 
 const displayController = (() => {
     const updateMainTab = (obj) => {
