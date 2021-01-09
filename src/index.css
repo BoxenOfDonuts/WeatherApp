@@ -76,8 +76,6 @@ ul {
   
   li div, li input[type="text"] {
     display: block;
-    color: white;
-    text-align: center;
     padding: 4px 16px;
     margin-left: 15px;
     text-decoration: none;
@@ -111,6 +109,10 @@ ul {
       border-radius: 4px 0 0 4px;
       width: 24rem;
       
+  }
+
+  input:focus {
+      outline: none;
   }
 
   /* toggle switch */

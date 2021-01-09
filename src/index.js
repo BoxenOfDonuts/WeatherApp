@@ -1,7 +1,8 @@
 import { get } from './fetch.js';
 import { processData } from './data.js';
 import './index.css';
-import { doc } from 'prettier';
+
+const searchLocation = document.querySelector('form[class="searchbar"] button');
 
 const fetchWeather = async () => {
     try {
@@ -21,10 +22,32 @@ const fetchWeather = async () => {
 };
 
 const inputController = (() => {
+    const _locationInputHandler = (e) => {
+        console.log(e.target.value);
+    };
+
     const getLocationInput = () => {
-        let input = document.querySelector('input[type="text"]');
-        input.addEventListener('pro')
-    }
+        const input = document.querySelector('input[type="text"]');
+        input.addEventListener('input', _locationInputHandler);
+    };
+
+    return { getLocationInput };
+})();
+
+const formValidation = (() => {
+    const _validateSingleInput = (element) => {
+        if (element.validity.valid) {
+            return true;
+        }
+
+        return false;
+    };
+
+    const location = (element) => _validateSingleInput(element);
+
+    return {
+        location,
+    };
 })();
 
 const displayController = (() => {
@@ -70,3 +93,14 @@ async function main() {
 }
 
 main();
+
+inputController.getLocationInput();
+searchLocation.addEventListener('click', (e) => {
+    // const input = e.target.closest('form').location
+    const input = e.target.closest('form').querySelector('input');
+    if (formValidation[input.name](input)) {
+        console.log(input.value);
+    } else {
+        console.log('empty!');
+    }
+});
