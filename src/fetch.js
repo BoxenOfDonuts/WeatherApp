@@ -1,4 +1,4 @@
-const APIKEY = '0ddb9a26781af92c96e23967103fda40';
+const APIKEY = '';
 
 const requests = async (url, parameters, method = 'GET') => {
     let params;
