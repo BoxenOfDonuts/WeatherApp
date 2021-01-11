@@ -23,7 +23,6 @@ const processData = async (data) => {
         iconURL,
         weather[0].description
     );
-    console.log(today);
     return today;
 };
 
