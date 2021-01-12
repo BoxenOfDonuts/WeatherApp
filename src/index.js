@@ -2,7 +2,9 @@ import { get } from './fetch.js';
 import { processData } from './data.js';
 import './index.css';
 
-const searchLocation = document.querySelector('form[class="searchbar"] button');
+// single input has implicit submit on enter
+// const searchLocation = document.querySelector('form[class="searchbar"] button');
+const form = document.querySelector('.searchbar');
 
 const weatherController = (() => {
     const _fetchWeather = async (params) => {
@@ -15,7 +17,8 @@ const weatherController = (() => {
 
             return json;
         } catch (error) {
-            console.log(error);
+            console.log('Error getting JSON');
+            return {};
         }
     };
 
@@ -29,35 +32,21 @@ const weatherController = (() => {
     };
 })();
 
-const inputController = (() => {
-    const _locationInputHandler = (e) => {
-        console.log(e.target.value);
-    };
-
-    const getLocationInput = () => {
-        const input = document.querySelector('input[type="text"]');
-        input.addEventListener('input', _locationInputHandler);
-    };
-
-    return { getLocationInput };
-})();
-
 const formValidation = (() => {
     const _validateSingleInput = (element) => {
         if (element.validity.valid) {
             return true;
         }
-
         return false;
     };
 
-    const isCityName = (input) => isNaN(input);
+    const isNumber = (input) => !isNaN(input);
 
     const location = (element) => _validateSingleInput(element);
 
     return {
         location,
-        isCityName,
+        isNumber,
     };
 })();
 
@@ -104,29 +93,32 @@ const displayController = (() => {
     return { updateMainTab };
 })();
 
-async function main() {
-    // const json = await weatherController.getByZipcode('63122');
-    const json = await weatherController.getByCityName('Los Angeles');
-    const data = await processData(json);
-    displayController.updateMainTab(data);
-}
-
-main();
-
 async function handleSearchForLocation(e) {
     // const input = e.target.closest('form').location
+    e.preventDefault();
     const input = e.target.closest('form').querySelector('input');
     const { value } = input;
     if (formValidation[input.name](input)) {
-        if (formValidation.isCityName(value)) {
+        if (!formValidation.isNumber(value)) {
             const json = await weatherController.getByCityName(value);
             const data = await processData(json);
             displayController.updateMainTab(data);
+        } else if (formValidation.isNumber(value) && value.length === 5) {
+            const json = await weatherController.getByZipcode(Number(value));
+            const data = await processData(json);
+            displayController.updateMainTab(data);
+        } else {
+            console.log('Please Enter Valid City or Zipcode');
         }
     } else {
-        console.log('empty!');
+        console.log('Please Enter Valid City or Zipcode');
     }
 }
 
-inputController.getLocationInput();
-searchLocation.addEventListener('click', handleSearchForLocation);
+form.addEventListener('submit', handleSearchForLocation);
+
+window.onload = async () => {
+    const json = await weatherController.getByCityName('Los Angeles');
+    const data = await processData(json);
+    displayController.updateMainTab(data);
+};

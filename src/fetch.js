@@ -20,16 +20,17 @@ const requests = async (url, parameters, method = 'GET') => {
     }
 
     const finalURL = `${url}?${params}`;
+    try {
+        const response = await fetch(finalURL, data);
 
-    const response = await fetch(finalURL, data);
+        if (response.status !== 200) {
+            throw new Error(`HTTP Error: ${response.status}`);
+        }
 
-    if (response.status !== 200) {
-        throw new Error(`HTTP Error: ${response.status}`);
+        return response;
+    } catch (error) {
+        console.log(error)
     }
-
-    // const r = await response.json();
-
-    return response;
 };
 
 const get = async (url, parameters) => requests(url, parameters, 'GET');
