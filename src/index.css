@@ -24,6 +24,11 @@
     margin: 40px 10px;
     width: 350px;
 }
+
+.nav {
+    width: 100%;
+}
+
 .weather-container {
     margin-top: 5px;
     display: flex;
@@ -104,10 +109,11 @@ ul {
       text-align: start;
   }
 
-  input[type="text"] {
+  input[type="text"] { 
       margin-left:15px !important;
       border-radius: 4px 0 0 4px;
       width: 24rem;
+      max-width: 70vw;
       
   }
 
@@ -115,4 +121,44 @@ ul {
       outline: none;
   }
 
-  /* toggle switch */
+  @media only screen and (max-width: 560px) {
+      .wrapper {
+          margin: 40px auto;
+      }
+
+      input[type="text"] {
+          max-width: 70vw;
+          margin-left: 10px !important;
+      }
+
+      .input {
+          margin: 0;
+          padding: 0;
+      }
+
+      li {
+          display: block;
+          margin: 0 auto;
+      }
+
+  }
+
+  @media only screen and (max-width: 350px) {
+      .wrapper {
+          overflow: scroll;
+          width: auto;
+      }
+
+      .weather-container > div {
+          width: 100px;
+      }
+
+      .left {
+          padding-left: 25px
+      }
+
+      input[type="text"] {
+        max-width: 60vw;
+      }
+
+  }
